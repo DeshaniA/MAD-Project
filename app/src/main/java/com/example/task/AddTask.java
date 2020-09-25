@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -35,7 +36,7 @@ public class AddTask extends AppCompatActivity {
     private Toolbar toolbar;
     TextView tvTimer1,tvTimer2;
     int t1Hour,t1Minute,t2Hour,t2Minute;
-    Button button;
+    Button button,button2;
     CheckBox c1,c2,c3,c4,c5,c6,c7;
 
 
@@ -50,6 +51,7 @@ public class AddTask extends AppCompatActivity {
         task = findViewById(R.id.task);
         goal = findViewById(R.id.goal);
         button = findViewById(R.id.btnsave);
+        button2 = findViewById(R.id.btnback);
         c1 = findViewById(R.id.monday);
         c2 = findViewById(R.id.tuesday);
         c3 = findViewById(R.id.wednesday);
@@ -210,6 +212,14 @@ public class AddTask extends AppCompatActivity {
                 }
             }
         });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddTask.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
