@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Goals</string>
+    <string name="hintName">Enter Goal Name</string>
+    <string name="hintTarget">Enter Target</string>
+    <string name="hintDline">Enter Goal Deadline</string>
+    <string name="hintDes">Enter Description</string>
+    <string name="SaveB">SAVE</string>
+    <string name="ShowB">SHOW</string>
+    <string name="UpdB">UPDATE</string>
+    <string name="DelB">DELETE</string>
+</resources>
