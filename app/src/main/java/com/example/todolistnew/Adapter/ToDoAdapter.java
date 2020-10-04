@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolistnew.AddNewTask;
@@ -28,6 +29,9 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         this.db=db;
         this.activity=activity;
     }
+
+    @NonNull
+    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int ViewType){
 
         View itemView= LayoutInflater.from(parent.getContext())
@@ -35,7 +39,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         return new ViewHolder(itemView);
     }
 
-    public void onBindViewHolder(ViewHolder holder,int position){
+    @Override
+    public void onBindViewHolder(@NonNull final ViewHolder holder,int position){
         db.openDatabase();
         final ToDoModel item=todoList.get(position);
         holder.task.setText(item.getTask());
@@ -53,21 +58,22 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         });
     }
 
+    private boolean toBoolean(int n){
+        return n!=0;
+    }
+
+    @Override
     public int getItemCount(){
         return todoList.size();
     }
 
-    private boolean toBoolean(int n){
-        return n!=0;
+    public Context getContext(){
+        return activity;
     }
 
     public void setTasks(List<ToDoModel> todoList){
         this.todoList=todoList;
         notifyDataSetChanged();
-    }
-
-    public Context getContext(){
-        return activity;
     }
 
     public void deleteItem(int position){

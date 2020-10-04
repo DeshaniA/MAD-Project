@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.todolistnew.R;
+//import com.example.todolistnew.R;
 
 public class SplashActivity extends AppCompatActivity {
 
