@@ -46,7 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public void insertTask(ToDoModel task) {
         ContentValues cv = new ContentValues();
-        cv.put(TASK, task.getStatus());
+        cv.put(TASK, task.getTask());
         cv.put(STATUS, 0);
         db.insert(TODO_TABLE, null, cv);
     }
@@ -65,7 +65,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         task.setTask(cur.getString(cur.getColumnIndex(TASK)));
                         task.setStatus(cur.getInt(cur.getColumnIndex(STATUS)));
                         taskList.add(task);
-                    }while (cur.moveToNext());
+                    }
+                    while (cur.moveToNext());
                 }
             }
         }
